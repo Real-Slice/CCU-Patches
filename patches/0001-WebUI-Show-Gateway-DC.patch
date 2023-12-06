@@ -15,21 +15,21 @@
      this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableStateHeader);
 -    
 +
-+    /* Spalten�berschrift DutyCycle Status (Tabelle f�r BidCoS-RF Gateways */
++    /* Spaltenüberschrift DutyCycle Status (Tabelle für BidCoS-RF Gateways */
 +    this.m_gatewayTableDCStateHeader = document.createElement("th");
 +    this.m_gatewayTableDCStateHeader.className = "bidcosrf_tableheader";
 +    //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
 +    this.m_gatewayTableDCStateHeader.appendChild(document.createTextNode("DutyCycle"));
 +    this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableDCStateHeader);
 +
-+    /* Spalten�berschrift Firmware Status (Tabelle f�r BidCoS-RF Gateways */
++    /* Spaltenüberschrift Firmware Status (Tabelle für BidCoS-RF Gateways */
 +    this.m_gatewayTableFWStateHeader = document.createElement("th");
 +    this.m_gatewayTableFWStateHeader.className = "bidcosrf_tableheader";
 +    //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
 +    this.m_gatewayTableFWStateHeader.appendChild(document.createTextNode("Firmware"));
 +    this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableFWStateHeader);
 +
-     /* Spalten�berschrift Verbunden (Tabelle f�r BidCoS-RF Gateways */
+     /* Spaltenüberschrift Verbunden (Tabelle für BidCoS-RF Gateways */
      this.m_gatewayTableActionHeader = document.createElement("th");
      this.m_gatewayTableActionHeader.className = "bidcosrf_tableheader";
 @@ -16832,6 +16848,16 @@
