@@ -1,2 +1,2 @@
 07.12.2023
-Based on CCU3 FW v3.73.9
+Based and tested on CCU3 FW v3.71.12
