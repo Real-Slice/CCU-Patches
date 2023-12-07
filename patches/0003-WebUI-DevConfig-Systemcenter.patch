@@ -1,5 +1,5 @@
---- /www/tools/devconfig.cgi.orig
-+++ /www/tools/devconfig.cgi
+--- /www/config/control_panel.cgi.orig
++++ /www/config/control_panel.cgi
 @@ -209,8 +209,8 @@
  
  if { "[read_var /etc/config/tweaks CP_DEVCONFIG]" != "" } {
