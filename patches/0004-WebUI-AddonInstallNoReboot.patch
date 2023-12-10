@@ -38,11 +38,11 @@
                      table_row {
                        table_data {
 -                        division {class="CLASS21412"} {onClick="installAddon();"} {
-+                        division {class="CLASS21412"} {onClick="document.upload_form.submit();"} {
++                          division {class="CLASS21412"} {onClick="document.upload_form.submit();"} {
                            #puts "Installieren"
                            puts "\${dialogSettingsExtraSoftwareBtnInstallSoftware}"
                          }
-@@ -523,14 +547,7 @@
+@@ -523,13 +547,7 @@
  }
  
  proc action_install_start {} {
@@ -53,14 +53,13 @@
 -    # CCU 2
 -    exec /bin/kill -SIGQUIT 1
 -  }
--  
 +  puts ""
+   
  }
  
- cgi_eval {
 --- /www/webui/js/lang/de/translate.lang.js.orig
 +++ /www/webui/js/lang/de/translate.lang.js
-@@ -688,13 +688,15 @@
+@@ -678,14 +678,16 @@
      "dialogSettingsExtraSoftwareBtnInstallSoftware" : "Installieren",
      "dialogSettingsExtraSoftwareBtnStartInstallSoftware" : "Installation starten",
      "dialogSettingsExtraSoftwareLblSelectExtraSoftware" : "Zusatzsoftware ausw%E4hlen:",
@@ -77,9 +76,10 @@
      "commentSettingsExtraSoftwareEnd" : "***********************************************",
      "commentDialogNewDevices" : "***********************************************",
      "dialogNewDevicesTitle" : "Ger%E4te anlernen",
+     "dialogNewDevicesTDBidCosRF" : HMIdentifier.de.BidCosRF + "<br/>(Funk)",
 --- /www/webui/js/lang/en/translate.lang.js.orig
 +++ /www/webui/js/lang/en/translate.lang.js
-@@ -693,7 +693,7 @@
+@@ -683,7 +683,7 @@
      "dialogSettingsExtraSoftwareBtnStartInstallSoftware" : "Start installation",
      "dialogSettingsExtraSoftwareLblSelectExtraSoftware" : "Select additional software:",
  
@@ -88,7 +88,7 @@
  
      "dialogSettingsExtraSoftwareInstallMessageBoxTitle" : "Firmware update - confirmation",
      "dialogSettingsExtraSoftwareInstallMessageBoxContent" : "The additional software has been uploaded. You can now start the installation by click on the button below.",
-@@ -704,6 +704,8 @@
+@@ -694,6 +694,8 @@
  
      "dialogSettingsExtraSoftwareHintPerformInstallationTitle" : "Install software",
      "dialogSettingsExtraSoftwareHintPerformInstallationContent" : "The software is being installed. After installation, the CCU will be restarted automatically. You can log in again afterwards.",
