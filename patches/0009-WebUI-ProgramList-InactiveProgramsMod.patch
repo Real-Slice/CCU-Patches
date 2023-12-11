@@ -1,17 +1,17 @@
 --- /www/rega/pages/tabs/admin/views/programlist.htm.orig
 +++ /www/rega/pages/tabs/admin/views/programlist.htm
-@@ -122,15 +122,16 @@
+@@ -122,15 +122,15 @@
              {
                string trId = "program"#o.ID();
                WriteLine( '<tr id="'#trId#'" class="CLASS04901">' );
 -              WriteLine( '<td class="tBodyCell">'#o.Name()#'</td>' );
 -              WriteLine( '<td class="tBodyCell">'#o.PrgInfo()#'</td>' );
 -              WriteLine( '<td class="tBodyCell">' );
+-              object oPrgID = o.ID();
 +              string sInactive = ""; if( !o.Active() ) { sInactive = "Inactive"; }
 +              WriteLine( '<td id="'#trId#'_name" class="tBodyCell'#sInactive#'">'#o.Name()#'</td>' );
 +              WriteLine( '<td id="'#trId#'_info" class="tBodyCell'#sInactive#'">'#o.PrgInfo()#'</td>' );
-+              WriteLine( '<td id="'#trId#'_cond" class="tBodyCell'#sInactive#'">' );
-               object oPrgID = o.ID();
++              WriteLine( '<td id="'#trId#'_cond" class="tBodyCell'#sInactive#'">' );              object oPrgID = o.ID();
                string sRet = "";
                Call( "/esp/programs.fn::WriteConditionText()" );
                Write (sRet);
@@ -21,16 +21,16 @@
                string sRet = "";
                Call( "/esp/programs.fn::WriteDestinationText()" );
                Write(sRet);
-@@ -161,7 +162,7 @@
+@@ -161,7 +161,7 @@
                          WriteLine( '<tr>' );
                            WriteLine( '<td class="CLASS04903">' );
                              string sChecked = ""; if( o.Active() ) { sChecked = "checked"; }
 -                            WriteLine( '<label class="CLASS04904"><input type="checkbox" '#sChecked#' onclick="isePrograms.SetActive('#o.ID()#',this.checked);" />${lblActiv}</label>' );
-+                            WriteLine( '<label class="CLASS04904"><input type="checkbox" '#sChecked#' onclick="isePrograms.SetActive('#o.ID()#',this.checked);updateActiveStatus('#o.ID()#',this.checked);" />${lblActiv}</label>' );
++                            WriteLine( '<label class="CLASS04904"><input type="checkbox" '#sChecked#' onclick="isePrograms.SetActive('#o.ID()#',this.checked);updateActiveStatus('#o.ID()#',this.checked);" />${lblActiv}</label>' );                          WriteLine( '</td>' );
                            WriteLine( '</td>' );
                          WriteLine( '</tr>' );
                          WriteLine( '<tr>' );
-@@ -215,16 +216,17 @@
+@@ -215,16 +215,17 @@
                if( (o.IsTypeOf( OT_PROGRAM )) && (o.ProgramCopyID()==ID_ERROR) )
                {
                  string trId = "program"#o.ID();
@@ -52,7 +52,7 @@
                  string sRet = "";
                  Call( "/esp/programs.fn::WriteDestinationText()" );
                  Write(sRet);
-@@ -255,7 +257,7 @@
+@@ -255,7 +256,7 @@
                            WriteLine( '<tr>' );
                              WriteLine( '<td class="CLASS04903">' );
                                string sChecked = ""; if( o.Active() ) { sChecked = "checked"; }
@@ -61,7 +61,7 @@
                              WriteLine( '</td>' );
                            WriteLine( '</tr>' );
                            WriteLine( '<tr>' );
-@@ -448,6 +450,14 @@
+@@ -448,6 +449,14 @@
        }
      }
    };
