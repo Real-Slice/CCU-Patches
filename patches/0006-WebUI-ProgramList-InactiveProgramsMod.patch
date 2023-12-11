@@ -11,7 +11,8 @@
 +              string sInactive = ""; if( !o.Active() ) { sInactive = "Inactive"; }
 +              WriteLine( '<td id="'#trId#'_name" class="tBodyCell'#sInactive#'">'#o.Name()#'</td>' );
 +              WriteLine( '<td id="'#trId#'_info" class="tBodyCell'#sInactive#'">'#o.PrgInfo()#'</td>' );
-+              WriteLine( '<td id="'#trId#'_cond" class="tBodyCell'#sInactive#'">' );              object oPrgID = o.ID();
++              WriteLine( '<td id="'#trId#'_cond" class="tBodyCell'#sInactive#'">' );
++              object oPrgID = o.ID();
                string sRet = "";
                Call( "/esp/programs.fn::WriteConditionText()" );
                Write (sRet);
