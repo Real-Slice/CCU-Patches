@@ -1,5 +1,5 @@
---- functions.fn.old	2023-12-19 13:30:51.462080527 +0100
-+++ functions.fn.new	2023-12-19 13:30:46.666105149 +0100
+--- /www/rega/esp/functions.fn.orig
++++ /www/rega/esp/functions.fn
 @@ -393,6 +393,9 @@
        !   can be MAINTENANCE_BAT_BL, MAINTENANCE_BAT_EL, MAINTENANCE_BAT_CL and so on
        ! For BidCos-RF this isn't necessary
