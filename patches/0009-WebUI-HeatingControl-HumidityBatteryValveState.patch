@@ -1,5 +1,5 @@
---- occu/WebUI/www/rega/esp/controls/heating_control.fn.orig
-+++ occu/WebUI/www/rega/esp/controls/heating_control.fn
+--- /www/rega/esp/controls/heating_control.fn.orig
++++ /www/rega/esp/controls/heating_control.fn
 @@ -4,11 +4,19 @@
    real rMin = 4.5;
    real rMax = 30.5;
@@ -204,8 +204,8 @@
      if (oWindowState) {
        WriteLine("opts.windowStateID = '"#oWindowState.ID()#"';");
        WriteLine("opts.WINDOW_STATE = '"#oWindowState.Value()#"';");
---- occu/WebUI/www/webui/webui.js.orig
-+++ occu/WebUI/www/webui/webui.js
+--- /www/webui/webui.js.orig
++++ /www/webui/webui.js
 @@ -25374,6 +25374,15 @@
      if (this.opts.stTemp) {
        this.showActualTemp();
