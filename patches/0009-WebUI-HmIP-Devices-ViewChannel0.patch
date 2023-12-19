@@ -1,0 +1,12 @@
+--- functions.fn.old	2023-12-19 13:30:51.462080527 +0100
++++ functions.fn.new	2023-12-19 13:30:46.666105149 +0100
+@@ -393,6 +393,9 @@
+       !   can be MAINTENANCE_BAT_BL, MAINTENANCE_BAT_EL, MAINTENANCE_BAT_CL and so on
+       ! For BidCos-RF this isn't necessary
+ 
++      bShowChannel = true;
++      return;
++
+       if ((oDevHssType.Substr(0,6) == "HmIPW-") || (oDevHssType == "HmIP-DRSI1") || (oDevHssType == "HmIP-DRSI4") || (oDevHssType == "HmIP-DRG-DALI")) {
+         object chnParam;
+         ! A HmIPW-* device with a control for the parameter IDENTIFY_TARGET_LEVEL (MAINTENANCE channel)
