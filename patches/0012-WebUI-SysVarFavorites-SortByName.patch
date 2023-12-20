@@ -10,11 +10,12 @@
            </tr>
          </table>
      </td>
-@@ -288,6 +291,14 @@
+@@ -287,7 +290,14 @@
+     }
      return arTmp;
    };
-   
-+  
+-  
++
 +  sortSysVar = function()
 +  {
 +    if (iUserId != 0) {
@@ -27,7 +28,7 @@
      dlgResult = "";
 --- /www/webui/js/lang/de/translate.lang.js.orig
 +++ /www/webui/js/lang/de/translate.lang.js
-@@ -352,6 +352,7 @@
+@@ -359,6 +359,7 @@
      "btnAddChannel" : "Kanal<br/>hinzuf%FCgen",
      "btnAddChannelWOLineBreak" : "Kanal hinzuf%FCgen",
      "btnAddSysVariable" : "Systemvariable hinzuf%FCgen",
@@ -37,7 +38,7 @@
      "btnChooseChannel" : "Kanalauswahl",
 --- /www/webui/js/lang/en/translate.lang.js.orig
 +++ /www/webui/js/lang/en/translate.lang.js
-@@ -351,6 +351,7 @@
+@@ -358,6 +358,7 @@
      "btnAddChannel" : "Add<br/>channel",
      "btnAddChannelWOLineBreak" : "Add channel",
      "btnAddSysVariable" : "Add system variable",
@@ -47,7 +48,7 @@
      "btnChooseChannel" : "Channel selection",
 --- /www/webui/webui.js.orig
 +++ /www/webui/webui.js
-@@ -22166,7 +22166,23 @@
+@@ -29016,7 +29016,23 @@
      };
      new Ajax.Updater("userSysVarTbl", url, opts);
    },
