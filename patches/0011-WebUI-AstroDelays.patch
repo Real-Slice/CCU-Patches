@@ -16,7 +16,7 @@
        }
      }
 -    if (tm.SunOffsetType() == sotAfterSunrise)
-+    elseif ((tm.SunOffsetType() == sotSunrise) ||
++        elseif ((tm.SunOffsetType() == sotSunrise) ||
 +            (tm.SunOffsetType() == sotBeforeSunrise) ||
 +            (tm.SunOffsetType() == sotAfterSunrise))
      {
