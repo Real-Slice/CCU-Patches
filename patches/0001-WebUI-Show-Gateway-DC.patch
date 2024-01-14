@@ -1,6 +1,6 @@
 --- /www/webui/webui.js.orig
 +++ /www/webui/webui.js
-@@ -24615,6 +24615,8 @@
+@@ -24838,6 +24838,8 @@
    m_gatewayTableHeadRow: null,
    m_gatewayTableAddressHeader: null,
    m_gatewayTableKeyHeader: null,
@@ -9,70 +9,70 @@
    m_gatewayTableIPHeader: null,
    m_gatewayTableStateHeader: null,
    m_gatewayTableActionHeader: null,
-@@ -24729,6 +24731,20 @@
+@@ -24952,6 +24954,20 @@
      //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
      this.m_gatewayTableStateHeader.appendChild(document.createTextNode(translateKey("thState")));
      this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableStateHeader);
-+
-+    /* Spaltenüberschrift DutyCycle Status (Tabelle für BidCoS-RF Gateways */
-+    this.m_gatewayTableDCStateHeader = document.createElement("th");
-+    this.m_gatewayTableDCStateHeader.className = "bidcosrf_tableheader";
-+    //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
-+    this.m_gatewayTableDCStateHeader.appendChild(document.createTextNode("DutyCycle"));
-+    this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableDCStateHeader);
-+
-+    /* Spaltenüberschrift Firmware Status (Tabelle für BidCoS-RF Gateways */
-+    this.m_gatewayTableFWStateHeader = document.createElement("th");
-+    this.m_gatewayTableFWStateHeader.className = "bidcosrf_tableheader";
-+    //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
-+    this.m_gatewayTableFWStateHeader.appendChild(document.createTextNode("Firmware"));
-+    this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableFWStateHeader);
++ 
++     /* Spaltenüberschrift DutyCycle Status (Tabelle für BidCoS-RF Gateways */
++     this.m_gatewayTableDCStateHeader = document.createElement("th");
++     this.m_gatewayTableDCStateHeader.className = "bidcosrf_tableheader";
++     //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
++     this.m_gatewayTableDCStateHeader.appendChild(document.createTextNode("DutyCycle"));
++     this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableDCStateHeader);
++ 
++     /* Spaltenüberschrift Firmware Status (Tabelle für BidCoS-RF Gateways */
++     this.m_gatewayTableFWStateHeader = document.createElement("th");
++     this.m_gatewayTableFWStateHeader.className = "bidcosrf_tableheader";
++     //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
++     this.m_gatewayTableFWStateHeader.appendChild(document.createTextNode("Firmware"));
++     this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableFWStateHeader);
      
      /* Spaltenüberschrift Verbunden (Tabelle für BidCoS-RF Gateways */
      this.m_gatewayTableActionHeader = document.createElement("th");
-@@ -25049,6 +25065,16 @@
+@@ -25272,6 +25288,16 @@
  				    	 lgw = rfGateways[j];
  				    	}
  				    }
-+				    for (var loop = 0; loop < gatewayStatus.length; loop++) {
-+				    	gatewaysn = gatewayStatus[loop].address;
-+				    	if (lgwStatus.serial == gatewaysn) {
-+				    		var textDC = gatewayStatus[loop].dutyCycle + "%";
-+				    		lgw.setDCState(textDC);
-+
-+				    		var textFW = gatewayStatus[loop].fwVersion;
-+				    		lgw.setFWState(textFW);
-+				    	}
-+				    }					
++ 				    for (var loop = 0; loop < gatewayStatus.length; loop++) {
++ 				    	gatewaysn = gatewayStatus[loop].address;
++ 				    	if (lgwStatus.serial == gatewaysn) {
++ 				    		var textDC = gatewayStatus[loop].dutyCycle + "%";
++ 				    		lgw.setDCState(textDC);
++ 
++ 				    		var textFW = gatewayStatus[loop].fwVersion;
++ 				    		lgw.setFWState(textFW);
++ 				    	}
++ 				    }
  		        	if(lgw) 
  		        	{
  					  if(lgwStatus.connstat == "NO_ERROR") {
-@@ -25082,6 +25108,24 @@
+@@ -25305,6 +25331,24 @@
  		  {
  			  var text = "";
  	   	      var status = rfGateways[i].determineState(gatewayStatus);
-+	   	      var cfglan = rfGateways[i].getAddress(gatewayStatus);
-+
-+	   	      for (var loop = 0; loop < gatewayStatus.length; loop++) {
-+	   	      	gatewaysn = gatewayStatus[loop].address;
-+
-+	   	      	if (cfglan == gatewaysn) {
-+	   	      		var textDC = gatewayStatus[loop].dutyCycle + "%";
-+	   	      		rfGateways[i].setDCState(textDC);
-+
-+	   	      		var textFW = gatewayStatus[loop].fwVersion;
-+	   	      		if (textFW < "965") {
-+	   	      			textFW = "0." + gatewayStatus[loop].fwVersion + " (Update: 0.965)";
-+	   	      		} else {
-+	   	      			textFW = "0." + gatewayStatus[loop].fwVersion;
-+	   	      		}
-+	   	      		rfGateways[i].setFWState(textFW);
-+	   	      	}
-+	   	  	  }
++ 	   	      var cfglan = rfGateways[i].getAddress(gatewayStatus);
++ 
++ 	   	      for (var loop = 0; loop < gatewayStatus.length; loop++) {
++ 	   	      	gatewaysn = gatewayStatus[loop].address;
++ 
++ 	   	      	if (cfglan == gatewaysn) {
++ 	   	      		var textDC = gatewayStatus[loop].dutyCycle + "%";
++ 	   	      		rfGateways[i].setDCState(textDC);
++ 
++ 	   	      		var textFW = gatewayStatus[loop].fwVersion;
++ 	   	      		if (textFW < "965") {
++ 	   	      			textFW = "0." + gatewayStatus[loop].fwVersion + " (Update: 0.965)";
++ 	   	      		} else {
++ 	   	      			textFW = "0." + gatewayStatus[loop].fwVersion;
++ 	   	      		}
++ 	   	      		rfGateways[i].setFWState(textFW);
++ 	   	      	}
++ 	   	  	  }
  		      if (status)
  		      {
  		        text = (status.isConnected) ? translateKey("lanGatewayLblConnected") : translateKey("lanGatewayLblNotConnected");
-@@ -25282,6 +25326,8 @@
+@@ -25505,6 +25549,8 @@
    m_keyLabel: null,
    m_ipLabel: null,
    m_stateLabel: null,
@@ -81,35 +81,36 @@
    m_actionCell: null,
    m_deleteButton: null,
    m_onDeleteHandler: null,
-@@ -25333,7 +25379,17 @@
+@@ -25556,7 +25602,17 @@
      this.m_stateLabel = document.createElement("td");
      this.m_stateLabel.className = "bidcosrf_tablecell";
      this.m_element.appendChild(this.m_stateLabel);
 -    
-+
++ 
 +    /* DutyCycle Status */
 +    this.m_stateDCLabel = document.createElement("td");
 +    this.m_stateDCLabel.className = "bidcosrf_tablecell";
 +    this.m_element.appendChild(this.m_stateDCLabel);
-+    
++     
 +    /* Firmware Status */
 +    this.m_stateFWLabel = document.createElement("td");
 +    this.m_stateFWLabel.className = "bidcosrf_tablecell";
 +    this.m_element.appendChild(this.m_stateFWLabel);
-+
++ 
      /* Aktion */
      this.m_actionCell = document.createElement("td");
      this.m_actionCell.className = "bidcosrf_actioncell";
-@@ -25472,7 +25528,18 @@
+@@ -25695,7 +25751,18 @@
  
      return this;
    },
+-  
 +  setDCState: function(state)
 +  {
 +    this.m_stateDCLabel.innerHTML = "";
 +    this.m_stateDCLabel.appendChild(document.createTextNode(state));
 +  },
-   
++   
 +  setFWState: function(state)
 +  {
 +    this.m_stateFWLabel.innerHTML = "";
@@ -119,3 +120,4 @@
    getElement: function()
    {
      return this.m_element;
+     
