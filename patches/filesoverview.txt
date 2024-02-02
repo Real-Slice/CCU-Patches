@@ -1,0 +1,141 @@
+Fileoverview Patcher:
+---------------------
+
+/www/api/methods/device/haslinksorprograms.tcl
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/api/methods/device/hasprograms.tcl
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/api/methods/system/getpositiondata.tcl
+ - 0016-WebUI-AddTimeZones.patch
+
+/www/config/control_panel.cgi
+ - 0003-WebUI-DevConfig-ControlPanel.patch
+
+/www/config/cp_maintenance.cgi
+ - 0017-WebUI-AddonPopupScrollable.patch
+
+/www/config/cp_network.cgi
+ - 0017-WebUI-AddonPopupScrollable.patch
+
+/www/config/cp_security.cgi
+ - 0017-WebUI-AddonPopupScrollable.patch
+
+/www/config/cp_software.cgi
+ - 0004-WebUI-DownloadAddonsInNewTab.patch
+ - 0005-WebUI-AddonInstallNoReboot.patch
+ - 0017-WebUI-AddonPopupScrollable.patch
+ - 0018-WebUI-AdditionalSoftwareSortedList.patch
+ - 0019-WebUI-Fix-cp_software-Typo.patch
+
+/www/config/cp_time.cgi
+ - 0016-WebUI-AddTimeZones.patch
+
+/www/config/ic_linkpeerlist.cgi
+ - 0023-WebUI-Fix-BrokenLinkPeerList.patch
+
+/www/config/ic_metadata.tc
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/rega/esp/controls/heating_control.fn
+ - 0008-WebUI-HeatingControl-HumidityBatteryValveState.patch
+
+/www/rega/esp/functions.fn
+ - 0009-WebUI-HmIP-Devices-ViewChannel0.patch
+
+/www/rega/esp/programs.fn
+ - 0015-WebUI-EqualThanCondition.patch
+
+/www/rega/esp/sico.inc
+ - 0015-WebUI-EqualThanCondition.patch
+
+/www/rega/esp/system.fn
+ - 0013-WebUI-AstroDelays.patch
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/msg/chnListBody.htm
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/rega/pages/msg/setValueRange.htm
+ - 0015-WebUI-EqualThanCondition.patch
+
+/www/rega/pages/msg/sysVarsArray.htm
+ - 0011-WebUI-GlobalSysVarUsage.patch
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/msg/sysVarsArrayAll.htm
+ - 0011-WebUI-GlobalSysVarUsage.patch
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/msg/userAccountConfigAdmin.htm
+ - 0012-WebUI-SysVarFavorites-SortByName.patch
+
+/www/rega/pages/tabs/admin/msg/newSysVar
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/tabs/admin/systemvars.htm
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/tabs/admin/msg/timemodule.htm
+ - 0013-WebUI-AstroDelays.patch
+
+/www/rega/pages/tabs/admin/views/functionchannels.htm
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/rega/pages/tabs/admin/views/functions.htm
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/rega/pages/tabs/admin/views/programlist.htm
+ - 0006-WebUI-ProgramList-InactiveProgramsMod.patch
+ - 0007-WebUI-ProgramList-DeleteProgramHint.patch
+
+/www/rega/pages/tabs/admin/views/roomchannels.htm
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/rega/pages/tabs/admin/views/rooms.htm
+ - 0014-WebUI-Fix-CountUsageStalling.patch
+
+/www/rega/pages/tabs/control/sysvars.htm
+ - 0011-WebUI-GlobalSysVarUsage.patch
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/tabs/statusviews/alarmMessages.htm
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/rega/pages/tabs/user/newFav.htm
+ - 0020-WebUI-Fix-SysVarPopups.patch
+
+/www/tools/devconfig.cgi
+ - 0002-WebUI-DevConfig-RSSI.patch
+
+/www/webui/js/extern/jqueryURLPlugin.js
+ - 0021-WebUI-Fix-SessionLogoutSave.patch
+
+/www/webui/js/lang/de/translate.lang.js
+ - 0005-WebUI-AddonInstallNoReboot.patch
+ - 0007-WebUI-ProgramList-DeleteProgramHint.patch
+ - 0012-WebUI-SysVarFavorites-SortByName.patch
+ - 0013-WebUI-AstroDelays.patch
+ - 0015-WebUI-EqualThanCondition.patch
+
+/www/webui/js/lang/en/translate.lang.js
+ - 0005-WebUI-AddonInstallNoReboot.patch
+ - 0007-WebUI-ProgramList-DeleteProgramHint.patch
+ - 0012-WebUI-SysVarFavorites-SortByName.patch
+ - 0013-WebUI-AstroDelays.patch
+ - 0015-WebUI-EqualThanCondition.patch
+
+/www/webui/color.map
+ - 0006-WebUI-ProgramList-InactiveProgramsMod.patch
+
+/www/webui/style.css
+ - 0006-WebUI-ProgramList-InactiveProgramsMod.patch
+
+/www/webui/webui.js
+ - 0001-WebUI-Show-Gateway-DC.patch
+ - 0008-WebUI-HeatingControl-HumidityBatteryValveState.patch
+ - 0010-WebUI-SortFirmwareOverview.patch
+ - 0012-WebUI-SysVarFavorites-SortByName.patch
+ - 0016-WebUI-AddTimeZones.patch
+ - 0021-WebUI-Fix-SessionLogoutSave.patch
