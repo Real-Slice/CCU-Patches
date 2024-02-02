@@ -1,0 +1,12 @@
+--- /www/rega/esp/functions.fn.orig
++++ /www/rega/esp/functions.fn
+@@ -397,6 +397,9 @@
+       integer devFwMajor = 0;
+       Call("/esp/functions.fn::getFirmwareVersion()");
+ 
++      bShowChannel = true;
++      return;
++
+       if ((oDevHssType.Substr(0,6) == "HmIPW-") || (oDevHssType == "HmIP-DRSI1") || (oDevHssType == "HmIP-DRSI4") || (oDevHssType == "HmIP-DRG-DALI") || ((oDevHssType == "HmIP-BSL") && (devFwMajor >= 2))) {
+         object chnParam;
+         ! A HmIPW-* device with a control for the parameter IDENTIFY_TARGET_LEVEL (MAINTENANCE channel)
