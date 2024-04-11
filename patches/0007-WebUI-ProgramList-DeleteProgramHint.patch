@@ -5,7 +5,7 @@
                          WriteLine( '<tr>' );
                            WriteLine( '<td class="CLASS04903">' );
 -                            WriteLine( '<input type="button" name="btnRemove" value="btnRemove" class="StdButton CLASS04907" onclick="DeleteProgram('#o.ID()#');" />' );
-+                            WriteLine( '<input type="button" name="btnRemove" value="btnRemove" class="StdButton CLASS04907" onclick="DeleteProgram('#o.ID()#',\''#o.Name()#'\');" />' );
++                            WriteLine( '<input type="button" name="btnRemove" value="btnRemove" class="StdButton CLASS04907" onclick="DeleteProgram('#o.ID()#',\''#o.Name()#'\');" />' ); 
                            WriteLine( '</td>' );
                          WriteLine( '</tr>' );
                          WriteLine( '<tr>' );
