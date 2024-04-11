@@ -1,6 +1,6 @@
 --- /www/webui/webui.js.orig
 +++ /www/webui/webui.js
-@@ -24838,6 +24838,8 @@
+@@ -24945,6 +24945,8 @@
    m_gatewayTableHeadRow: null,
    m_gatewayTableAddressHeader: null,
    m_gatewayTableKeyHeader: null,
@@ -9,32 +9,32 @@
    m_gatewayTableIPHeader: null,
    m_gatewayTableStateHeader: null,
    m_gatewayTableActionHeader: null,
-@@ -24952,6 +24954,20 @@
+@@ -25059,6 +25061,20 @@
      //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
      this.m_gatewayTableStateHeader.appendChild(document.createTextNode(translateKey("thState")));
      this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableStateHeader);
 + 
-+     /* Spaltenüberschrift DutyCycle Status (Tabelle für BidCoS-RF Gateways */
-+     this.m_gatewayTableDCStateHeader = document.createElement("th");
-+     this.m_gatewayTableDCStateHeader.className = "bidcosrf_tableheader";
-+     //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
-+     this.m_gatewayTableDCStateHeader.appendChild(document.createTextNode("DutyCycle"));
-+     this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableDCStateHeader);
++    /* Spaltenüberschrift DutyCycle Status (Tabelle für BidCoS-RF Gateways */
++    this.m_gatewayTableDCStateHeader = document.createElement("th");
++    this.m_gatewayTableDCStateHeader.className = "bidcosrf_tableheader";
++    //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
++    this.m_gatewayTableDCStateHeader.appendChild(document.createTextNode("DutyCycle"));
++    this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableDCStateHeader);
 + 
-+     /* Spaltenüberschrift Firmware Status (Tabelle für BidCoS-RF Gateways */
-+     this.m_gatewayTableFWStateHeader = document.createElement("th");
-+     this.m_gatewayTableFWStateHeader.className = "bidcosrf_tableheader";
-+     //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
-+     this.m_gatewayTableFWStateHeader.appendChild(document.createTextNode("Firmware"));
-+     this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableFWStateHeader);
++    /* Spaltenüberschrift Firmware Status (Tabelle für BidCoS-RF Gateways */
++    this.m_gatewayTableFWStateHeader = document.createElement("th");
++    this.m_gatewayTableFWStateHeader.className = "bidcosrf_tableheader";
++    //this.m_gatewayTableStateHeader.appendChild(document.createTextNode("Status"));
++    this.m_gatewayTableFWStateHeader.appendChild(document.createTextNode("Firmware"));
++    this.m_gatewayTableHeadRow.appendChild(this.m_gatewayTableFWStateHeader);
      
      /* Spaltenüberschrift Verbunden (Tabelle für BidCoS-RF Gateways */
      this.m_gatewayTableActionHeader = document.createElement("th");
-@@ -25272,6 +25288,16 @@
+@@ -25379,6 +25395,16 @@
  				    	 lgw = rfGateways[j];
  				    	}
  				    }
-+ 				    for (var loop = 0; loop < gatewayStatus.length; loop++) {
++  				    for (var loop = 0; loop < gatewayStatus.length; loop++) {
 + 				    	gatewaysn = gatewayStatus[loop].address;
 + 				    	if (lgwStatus.serial == gatewaysn) {
 + 				    		var textDC = gatewayStatus[loop].dutyCycle + "%";
@@ -47,7 +47,7 @@
  		        	if(lgw) 
  		        	{
  					  if(lgwStatus.connstat == "NO_ERROR") {
-@@ -25305,6 +25331,24 @@
+@@ -25412,6 +25438,24 @@
  		  {
  			  var text = "";
  	   	      var status = rfGateways[i].determineState(gatewayStatus);
@@ -72,7 +72,7 @@
  		      if (status)
  		      {
  		        text = (status.isConnected) ? translateKey("lanGatewayLblConnected") : translateKey("lanGatewayLblNotConnected");
-@@ -25505,6 +25549,8 @@
+@@ -25612,6 +25656,8 @@
    m_keyLabel: null,
    m_ipLabel: null,
    m_stateLabel: null,
@@ -81,7 +81,7 @@
    m_actionCell: null,
    m_deleteButton: null,
    m_onDeleteHandler: null,
-@@ -25556,7 +25602,17 @@
+@@ -25663,7 +25709,17 @@
      this.m_stateLabel = document.createElement("td");
      this.m_stateLabel.className = "bidcosrf_tablecell";
      this.m_element.appendChild(this.m_stateLabel);
@@ -100,7 +100,7 @@
      /* Aktion */
      this.m_actionCell = document.createElement("td");
      this.m_actionCell.className = "bidcosrf_actioncell";
-@@ -25695,7 +25751,18 @@
+@@ -25802,7 +25858,18 @@
  
      return this;
    },
