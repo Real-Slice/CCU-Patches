@@ -15,7 +15,7 @@
 +
 +  object oBatteryState = cObj.DPByHssDP("BATTERY_STATE");
 +  object oValveState = cObj.DPByHssDP("VALVE_STATE");  
-+  object oHumidity = cObj.DPByHssDP("ACTUAL_HUMIDITY");                                                
++  object oHumidity = cObj.DPByHssDP("ACTUAL_HUMIDITY");
 +
    object oModeAuto = cObj.DPByControl("HEATING_CONTROL.AUTO");
    object oModeManu = cObj.DPByControl("HEATING_CONTROL.MANU");
@@ -49,7 +49,7 @@
    }
  
    WriteLine("<tr>");
-@@ -68,6 +71,48 @@
+@@ -85,6 +88,48 @@
      WriteLine("</td>");
    WriteLine("</tr>");
  
@@ -96,8 +96,8 @@
 +  }
 +
    WriteLine("<tr>");
-     WriteLine("<td colspan='1' id='slidCtrl"#cObj.ID()#"' class='CLASS02529'></td>");
-     WriteLine("<td class='CLASS02529'>");
+     WriteLine("<td>");
+       WriteLine("<table id='tblChangeMode"#chnId#"' width='100%' height='100%' class='hidden'>");
 @@ -179,6 +224,24 @@
        WriteLine("opts.stTemp = "#oTemperature.Value()#";");
        WriteLine("opts.stUnit = '"#sUnit#"';");
@@ -123,7 +123,7 @@
  
      WriteLine("its"#chnId#" = new iseThermostat_2ndGen("#chnId#", "#rState#", "#iLvlDpId#", "#rMin#", "#rMax#", " #system.GetVar("iReadOnlyState")#", "#system.GetVar('bSliderFlag')#", opts);");
    WriteLine("</script>");
-@@ -203,6 +266,8 @@
+@@ -205,6 +268,8 @@
  
    string tUnit = "&deg;<i>C</i>";
    string hUnit = "&#37;";
@@ -132,20 +132,20 @@
    string co2Unit = "ppm";
    string co2Value = "--";
    real rState = 0;
-@@ -213,6 +278,12 @@
+@@ -214,6 +279,12 @@
+   object oSetPoint = cObj.DPByControl("HEATING_CONTROL_HMIP.SETPOINT");
    object oWindowState = cObj.DPByControl("HEATING_CONTROL_HMIP.WINDOW_STATE");
    object oLevel = cObj.DPByControl("HEATING_CONTROL_HMIP.LEVEL");
- 
 +  object oBatteryState = cObj.DPByHssDP("BATTERY_STATE");
 +  object oValveLevel = oLevel;
 +  if (!oLevel) {
 +    oValveLevel = cObj.DPByHssDP("LEVEL");
 +  }
 +
+   object oHeatingCooling = cObj.DPByControl("HEATING_CONTROL_HMIP.HEATING_COOLING");
+ 
    object oActiveProfile = cObj.DPByControl("HEATING_CONTROL_HMIP.ACTIVE_PROFILE");
-   object oHumidity = cObj.DPByControl("HEATING_CONTROL_HMIP.HUMIDITY");
-   object oSetPointMode = cObj.DPByControl("HEATING_CONTROL_HMIP.SETPOINT_MODE");
-@@ -243,12 +314,6 @@
+@@ -246,12 +317,6 @@
    }
  
  
@@ -158,7 +158,7 @@
    if (oCO2) {
      object oCO2Concentration = cObj.DPByControl("CARBON_DIOXIDE_RECEIVER.CONCENTRATION");
      object oCO2ConcentrationStatus = cObj.DPByControl("CARBON_DIOXIDE_RECEIVER.CONCENTRATION_STATUS");
-@@ -357,13 +422,25 @@
+@@ -360,13 +425,25 @@
        WriteLine("</table>");
      WriteLine("</td>");
  
@@ -189,7 +189,7 @@
            WriteLine("</tr>");
          WriteLine("</table>");
        WriteLine("</td>");
-@@ -519,6 +596,14 @@
+@@ -550,6 +627,14 @@
        WriteLine("opts.humidityID = '"#oHumidity.ID()#"';");
        WriteLine("opts.HUMIDITY = '"#oHumidity.Value()#"';");
      }
@@ -206,7 +206,7 @@
        WriteLine("opts.WINDOW_STATE = '"#oWindowState.Value()#"';");
 --- /www/webui/webui.js.orig
 +++ /www/webui/webui.js
-@@ -36025,6 +36025,15 @@
+@@ -36374,6 +36374,15 @@
      if (this.opts.stTemp) {
        this.showActualTemp();
      }
@@ -222,7 +222,7 @@
      if (this.opts.idComfort && this.opts.idLowering) {
        this.showComfortEco();
      }
-@@ -36219,6 +36228,26 @@
+@@ -36568,6 +36577,26 @@
      jQuery("#"+this.id +"tblShowTemp").show();
    },
  
@@ -249,16 +249,16 @@
    showHolidayEndTime: function() {
      var stopTime = this.getHolidayEndTime();
      if (stopTime) {
-@@ -36327,6 +36356,8 @@
-       self.setSControl("ACTUAL_TEMPERATURE", self.ACTUAL_TEMPERATURE);
-       self.setSControl("HUMIDITY", self.HUMIDITY);
-       self.setSControl("WINDOW_STATE", self.WINDOW_STATE);
-+      self.setSControl("BATTERY_STATE", self.BATTERY_STATE);
-+      self.setSControl("LEVEL", self.LEVEL);
-       self.setSlider();
-       self.initElements();
-       self.bindEvents();
-@@ -36341,6 +36372,8 @@
+@@ -36683,6 +36712,8 @@
+     this.setSControl("ACTUAL_TEMPERATURE", this.ACTUAL_TEMPERATURE);
+     this.setSControl("HUMIDITY", this.HUMIDITY);
+     this.setSControl("WINDOW_STATE", this.WINDOW_STATE);
++    this.setSControl("BATTERY_STATE", this.BATTERY_STATE);
++    this.setSControl("LEVEL", this.LEVEL);
+     this.setSlider();
+     this.initElements();
+     this.bindEvents();
+@@ -36695,6 +36726,8 @@
      this.BOOST_MODE = (this.checkBool(opts.BOOST_MODE, false) == "true") ? true : false;
      //this.FROST_PROTECTION = opts.FROST_PROTECTION;
      this.HUMIDITY = this.checkValue(opts.HUMIDITY, this.unknownState);
